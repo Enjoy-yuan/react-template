@@ -1,0 +1,14 @@
+{
+  // 设置字体大小
+  "editor.fontSize": 14,
+  // 设置prettier扩展格式化2个空格
+  "prettier.tabWidth": 2,
+  // 设置prettier扩展格式化单引号
+  "prettier.singleQuote": true,
+  // 设置prettier扩展末尾不带分号
+  "prettier.semi": true,
+  // 设置prettier扩展末尾不带逗号
+  "prettier.trailingComma": "none",
+  // 设置prettier扩展代码宽度130
+  "prettier.printWidth": 130
+}

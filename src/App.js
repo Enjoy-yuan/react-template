@@ -1,25 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import React, { Component } from 'react';
+import ChildCom from './ChildCom';
 
-export default App;
+export default class App extends Component {
+  state = {
+    aaa: 111,
+    inputValue: '',
+    inputValue2: ''
+  };
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        aaa: 888
+      });
+    }, 1000);
+  }
+  inputChange = (e) => {
+    this.setState({
+      inputValue: e.target.value
+    });
+  };
+  inputChange2 = (e) => {
+    this.setState({
+      inputValue2: e.target.value
+    });
+  };
+  render() {
+    return (
+      <div>
+        <input value={this.state.inputValue} onChange={this.inputChange} />
+        {this.state.inputValue}
+        <input value={this.state.inputValue2} onChange={this.inputChange2} />
+        {this.state.inputValue2}
+        <ChildCom aaa={this.state.aaa} />
+      </div>
+    );
+  }
+}
