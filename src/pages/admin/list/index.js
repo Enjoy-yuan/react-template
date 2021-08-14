@@ -1,11 +1,7 @@
 import React, { Component } from 'react'
 
 export default class index extends Component {
-    render() {
-        return (
-            <div>
-                list
-            </div>
-        )
-    }
+  render() {
+    return <div>列表页</div>
+  }
 }
