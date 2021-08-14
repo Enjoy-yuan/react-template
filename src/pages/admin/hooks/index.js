@@ -12,10 +12,10 @@ export default function Index(props) {
   useEffect(() => {
     console.log('count被修改: ' + count)
   }, [count])
-  
+
   return (
     <div>
-      count: {count}*price: {price} =total: {total}
+      count: {count} * price: {price} = total: {total}
       <br />
       <Button onClick={() => setCount(count + 1)}>count++</Button>
       <Button onClick={() => setPrice(price + 1)}>price++</Button>

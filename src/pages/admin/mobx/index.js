@@ -7,7 +7,7 @@ export class index extends Component {
   render() {
     return (
       <div>
-        count: {store.count}* price: {store.price}= total: {store.total}
+        count: {store.count} * price: {store.price} = total: {store.total}
         <br />
         <Button
           onClick={() => {
