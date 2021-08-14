@@ -18,9 +18,9 @@ class App extends Component {
                 path={route.path}
                 exact={route.exact}
                 component={route.component}
-                render={(routeProps) => {
-                  return <route.component {...routeProps} />
-                }}
+                // render={(routeProps) => {
+                //   return <route.component {...routeProps} />
+                // }}
               ></Route>
             )
           })}
