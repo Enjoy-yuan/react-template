@@ -1,45 +1,59 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router'
 import { Layout, Menu } from 'antd'
-import { UnorderedListOutlined } from '@ant-design/icons'
+import { UnorderedListOutlined, MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
 import { adminRoutes } from '../../../routes'
-import './index.css'
 const { Header, Content, Sider } = Layout
 const routes = adminRoutes.filter((route) => route.isShow)
 
 export class index extends Component {
+  state = {
+    collapsed: false
+  }
+
+  toggle = () => {
+    this.setState({
+      collapsed: !this.state.collapsed
+    })
+  }
   render() {
     return (
       <Layout>
-        <Header className="header">
-          <div className="logo" onClick={() => this.props.history.push('/admin/dashboard')}>后台管理系统</div>
-          <span onClick={() => this.props.history.push('/login')}>退出登录</span>
-        </Header>
-        <Layout>
-          <Sider width={200} className="site-layout-background">
-            <Menu mode="inline" defaultSelectedKeys={['1']} defaultOpenKeys={['sub1']} style={{ height: '100%', borderRight: 0 }}>
-              {routes.map((route) => {
-                return (
-                  <Menu.Item key={route.path} onClick={(p) => this.props.history.push(p.key)}>
-                    <UnorderedListOutlined />
-                    <span style={{ marginLeft: 10 }}>{route.title}</span>
-                  </Menu.Item>
-                )
+        <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
+          {/* <div className="logo" /> */}
+          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+            {routes.map((route) => {
+              return (
+                <Menu.Item key={route.path} onClick={(p) => this.props.history.push(p.key)}>
+                  <UnorderedListOutlined />
+                  <span style={{ marginLeft: 10 }}>{route.title}</span>
+                </Menu.Item>
+              )
+            })}
+          </Menu>
+        </Sider>
+        <Layout className="site-layout">
+          <Header className="site-layout-background" style={{ padding: 0 }}>
+            <div className="logo">
+              {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+                className: 'trigger',
+                onClick: this.toggle
               })}
-            </Menu>
-          </Sider>
-          <Layout style={{ padding: '10px' }}>
-            <Content
-              className="site-layout-background"
-              style={{
-                padding: 24,
-                margin: 0,
-                minHeight: 280
-              }}
-            >
-              {this.props.children}
-            </Content>
-          </Layout>
+            </div>
+            <span className="person" onClick={() => this.props.history.push('/login')}>
+              退出登录
+            </span>
+          </Header>
+          <Content
+            className="site-layout-background"
+            style={{
+              margin: 10,
+              padding: 10,
+              minHeight: 280
+            }}
+          >
+            {this.props.children}
+          </Content>
         </Layout>
       </Layout>
     )

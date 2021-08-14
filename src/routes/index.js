@@ -5,6 +5,8 @@ import list from '../pages/admin/list'
 import edit from '../pages/admin/edit'
 import mobx from '../pages/admin/mobx'
 import hooks from '../pages/admin/hooks'
+import redux from '../pages/admin/redux'
+import typescript from '../pages/admin/typescript'
 
 
 export const mainRoutes = [
@@ -41,6 +43,18 @@ export const adminRoutes = [
     component: hooks,
     isShow: true,
     title: 'hooks使用'
+  },
+  {
+    path: '/admin/redux',
+    component: redux,
+    isShow: true,
+    title: 'redux使用'
+  },
+  {
+    path: '/admin/typescript',
+    component: typescript,
+    isShow: true,
+    title: 'typescript使用'
   },
   {
     path: '/admin/list',

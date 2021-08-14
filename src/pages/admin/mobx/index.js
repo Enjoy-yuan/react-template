@@ -7,9 +7,8 @@ export class index extends Component {
   render() {
     return (
       <div>
-        <p>
-          {store.count}*{store.price}={store.total}
-        </p>
+        count: {store.count}* price: {store.price}= total: {store.total}
+        <br />
         <Button
           onClick={() => {
             store.incrementCount()
@@ -29,14 +28,14 @@ export class index extends Component {
             store.setCount()
           }}
         >
-          setCount
+          setCount=10
         </Button>
         <Button
           onClick={() => {
             store.getFlowData()
           }}
         >
-          getFlowData
+          getFlowData after axios
         </Button>
       </div>
     )
