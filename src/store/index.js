@@ -1,4 +1,4 @@
-import { makeAutoObservable, autorun, flow } from 'mobx'
+import { makeAutoObservable, autorun } from 'mobx'
 import axios from 'axios'
 
 class Store {

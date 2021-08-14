@@ -5,7 +5,6 @@ import store from './store'
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import { mainRoutes } from './routes'
 
-const aaa=999
 ReactDOM.render(
   <Router>
     <Switch>
